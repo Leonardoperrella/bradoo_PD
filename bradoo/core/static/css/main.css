@@ -1,0 +1,185 @@
+@charset "UTF-8";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    background: #fafafa;
+    color: black;
+    margin-top: 5rem;
+    font-size: large;
+  }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+ul {
+  margin: 0;
+}
+
+img {
+  background-color: black;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  
+
+}
+
+element {
+  width: 20%;
+  left: 63.1954%;
+  
+}
+p {
+  font-size: 12pt;
+  margin-left: 8px;
+}
+
+.full_grid {
+  margin-bottom: 20px;
+  margin-top: 40px;
+}
+
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+  padding: 50px;
+}
+
+
+.tasteStructure__tasteStructure--15VDn .tasteStructure__tasteCharacteristic--1rMFl .tasteStructure__progressBar--hjNb2 {
+  -webkit-box-flex: 1;
+  flex-grow: 0;
+  margin: 0 8px;
+}
+
+
+.indicatorBar__meter--2t_YL, .indicatorBar__meter--2t_YL .indicatorBar__progress--3aXLX {
+  height: 8px;
+  border-radius: 7px;
+}
+
+.indicatorBar__meter--2t_YL {
+  max-height: 8px;
+  position: relative;
+  background: #f1ddcd;
+  width: 200px;
+  margin-left: 40px;
+}
+
+
+.indicatorBar__meter--2t_YL .indicatorBar__progress--3aXLX {
+  display: block;
+  background-color: #ba1628;
+  position: absolute;
+  overflow: hidden;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: indicatorBar__bounceIn--lAgLM;
+  animation-name: indicatorBar__bounceIn--lAgLM;
+}
+
+
+.indicatorBar__meter--2t_YL, .indicatorBar__meter--2t_YL .indicatorBar__progress--3aXLX {
+  height: 8px;
+  border-radius: 7px;
+}
+
+
+.tasteStructure__tasteStructure--15VDn .tasteStructure__tasteCharacteristic--1rMFl .tasteStructure__property--loYWN {
+  font-size: 14px;
+  line-height: normal;
+  font-weight: 400;
+  width: 56px;
+}
+
+.grid__row--1XVoC {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-box-flex: 1;
+  flex: 1 0 auto;
+  margin: 0 -8px;
+}
+
+
+.grid__mobile-column {
+  width: 100%;
+  padding: 0 8px;
+  display: flex
+}
+
+.tasteStructure__tasteStructure--15VDn {
+  margin-bottom: 25px;
+}
+
+.tasteStructure__tasteStructure--15VDn .tasteStructure__tasteCharacteristic--1rMFl {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 24px;
+  margin-bottom: 8px;
+}
+
+.pagination {
+  
+  margin-left: 500;
+
+}
+
+.bg-steel {
+  background-color: #da3d86;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500px;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+
+
+
+.btn-info {
+  color: #fff;
+  background-color: #da3d86;
+  border-color: #da3d86;
+}
+
+
+.btn-outline-info {
+  color: #da3d86;
+  border-color: #da3d86;
+}
+
+.btn:hover {
+  border-color: #da3d86;
+  background-color: #da3d86;
+ 
+}
+
+
+
+
