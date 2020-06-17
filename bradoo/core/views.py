@@ -133,23 +133,6 @@ def edit_vendor(request, vendor_id):
     return redirect('vendors')
 
 
-class VendorsList(APIView):
-    """
-    List all vendors, or create a new vendor.
-    """
-    def get(self, request, format=None):
-        vendors = Vendors.objects.all()
-        serializer = VendorsSerializer(vendors, many=True)
-        return Response(serializer.data)
-
-    def post(self, request, format=None):
-        serializer = VendorsSerializer(data=request.data)
-        if not serializer.is_valid():
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        serializer.save()
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-
 class VendorsViewSet(viewsets.ModelViewSet):
     queryset = Vendors.objects.all()
     serializer_class = VendorsSerializer
