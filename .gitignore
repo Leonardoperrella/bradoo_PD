@@ -1,6 +1,6 @@
 .env
 .idea
-.wttd
+.bradoo
 *.sqlite3
 *pyc
 __pycache__
