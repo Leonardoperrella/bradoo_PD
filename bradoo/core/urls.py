@@ -8,7 +8,6 @@ from bradoo.core.views import (
     delete_product,
     delete_product_section,
     edit_product,
-    vendors_list,
     create_vendor,
     delete_vendor,
     delete_vendor_section,
