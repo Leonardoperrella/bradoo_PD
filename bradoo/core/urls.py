@@ -3,6 +3,7 @@ from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from bradoo.router import router
 from bradoo.core.views import (
+    home,
     products_list,
     create_product,
     delete_product,
@@ -16,6 +17,7 @@ from bradoo.core.views import (
 )
 
 urlpatterns = [
+    path('', home, name='home'),
     path('vendors/', vendors_list, name='vendors'),
     path('create_vendor/', create_vendor, name='create-vendor'),
     path('edit/<int:vendor_id>', edit_vendor, name='edit-vendor'),

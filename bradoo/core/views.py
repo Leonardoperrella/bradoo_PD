@@ -1,12 +1,16 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.paginator import Paginator
 from django.http import Http404
-from rest_framework import status, viewsets
+from rest_framework import status, viewsets, mixins
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from bradoo.core.models import Products, Vendors
 from bradoo.core.forms import ProductsModelForm, VendorsModelForm
 from bradoo.core.serializers import VendorsSerializer
+
+
+def home(request):
+    return render(request, 'core/home.html')
 
 
 def products_list(request):
@@ -73,11 +77,11 @@ def vendors_list(request):
     city = request.GET.get('city', False)
     
     if name:
-        vendors = vendors.filter(name__startswith=name)
+        vendors = vendors.filter(name=name)
     if cnpj:
-        vendors = vendors.filter(cnpj__startswith=cnpj)
+        vendors = vendors.filter(cnpj=cnpj)
     if city:
-        vendors = vendors.filter(city__startswith=city)           
+        vendors = vendors.filter(city=city)           
 
     paginator = Paginator(vendors, 2)
     page_number = request.GET.get('page')
@@ -140,12 +144,31 @@ class VendorsViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         qs = super(VendorsViewSet, self).get_queryset()
         pk = self.request.query_params.get('id')
-        name = self.request.query_params.get('name')
         cnpj = self.request.query_params.get('cnpj')
+        name = self.request.query_params.get('name')
+        print(self.request.GET)
         if pk:
             qs = qs.filter(pk=pk)
+            print('entrou pk')
+            print(qs)
+        if cnpj:
+            qs = qs.filter(cnpj=cnpj)
+            print('entrou cnpj')
+            print(qs)
         if name:
             qs = qs.filter(name=name)
-        if cnpj:
-            qs = qs.filter(cnpj=cnpj)    
+            print('entrou name')
+            print(qs)
         return qs
+
+    def list(self, request, *args, **kwargs):
+        queryset = self.filter_queryset(self.get_queryset())
+        if not queryset:
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)    

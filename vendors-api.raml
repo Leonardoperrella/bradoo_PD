@@ -1,0 +1,113 @@
+#%RAML 1.0
+title: vendors-api
+
+version: v1
+mediaType: application/json
+
+types:
+  Vendors:
+    properties:
+      name:
+        description: Vendor's name.      
+        type: string
+      cnpj:
+        description: Vendor's Identification Number. An fourteen-digit number used as a                       tracking number by the Department of Federal Revenue of Brazil.
+        type: string
+        pattern: '^[0-9]{14}'
+      city:
+        description: Vendor's citytown.
+        type: string
+    example:         #Declaração de um exemplo
+      name: Vendor1
+      cnpj: "00000000000000"
+      city: São Paulo
+  Products:
+    properties:
+      name:
+        description: Product name.      
+        type: string
+      code:
+        description: Product code.
+        type: string
+      price:
+        description: Product sales price.
+        type: number
+      vendor:
+        description: Related vendor.
+        type: string
+    example:
+      name: Product 1
+      code: "000001"
+      price: 10.00
+      vendor: Vendor 1
+
+/vendors:  
+  get:  
+    queryParameters:
+      name:
+        type: string
+        required: false
+      cnpj:
+        type: string
+        required: false  
+      city:
+        type: string
+        required: false
+      body: Products
+
+    responses:
+      200:
+        body:
+          type: Vendors
+      500:
+        body: 
+          type: string
+
+                  
+  post:
+    body:
+      type: Vendors
+    responses:
+      200:
+        body:
+          type: Vendors  
+  /{id}:
+    put:
+      body:
+        type: Vendors
+      responses:
+        200:
+          body:
+            type:   
+    delete:
+      body:
+        type: Vendors
+      responses:
+        200:
+          body:
+            type:  
+
+/vendors/?id={id}&cnpj={cnpj}&name{name}:  
+  get:
+    queryParameters:
+      name:
+        type: string
+        required: false
+      cnpj:
+        type: string
+        required: false  
+      city:
+        type: string
+        required: false
+      body: Products
+
+    responses:
+      200:
+        body:
+          type: Vendors
+      500:
+        body: 
+          type: string
+
+
+  
