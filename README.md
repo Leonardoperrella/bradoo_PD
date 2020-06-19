@@ -23,6 +23,7 @@
     django
     djangorestframework
     dj-database-url
+    django-filter
     dj-static
     drf-writable-nested
     localflavor
@@ -36,22 +37,24 @@
     4. Install the dependencies.
     5. Configure the instance with .env
     6. Run secret_gen.py
-    7. On file .venv, replace secret key generated into variable SECRET_KEY=<SECRET_KEY>.
+    7. On file .venv, replace secret key generated into variable SECRET_KEY=<SECRET_KEY>
+        and if you DATABASE_URL replace wirh followers for database configuration. If you like
+        using sqlite3, just comment this line.
     8. Run migrations
-9. Execute tests
+    9. Execute tests
 
 ```console
-    git clone https://github.com/Leonardoperrella/bradoo_PD.git bradoo
-    cd bradoo
-    python3 -m venv .venv
-    source .venv/bin/activate
-    pip install -r requirements.txt
-    cp contrib/env-sample .env
-    cd contrib
-    python secret_gen.py
-    cd ..
-    python manage.py migrate
-    python manage.py test
+git clone https://github.com/Leonardoperrella/bradoo_PD.git bradoo
+cd bradoo
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp contrib/env-sample .env
+cd contrib
+python secret_gen.py
+cd ..
+python manage.py migrate
+python manage.py test
 ```
 
 
