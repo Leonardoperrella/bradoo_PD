@@ -1,6 +1,5 @@
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework.urlpatterns import format_suffix_patterns
 from bradoo.router import router
 from bradoo.core.views import (
     home,
@@ -30,5 +29,3 @@ urlpatterns = [
     path('delete_product_section/', delete_product_section, name='delete_product_section'),
     path('api/', include(router.urls))
 ]
-
-#urlpatterns = format_suffix_patterns(urlpatterns)

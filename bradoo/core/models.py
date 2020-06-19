@@ -1,8 +1,8 @@
 from django.db import models    
 from django.core.validators import MinValueValidator
 from decimal import Decimal
-from bradoo.core.validators import validate_cnpj
 from localflavor.br.models import BRCNPJField
+from bradoo.core.validators import validate_cnpj
 
 
 class Vendors(models.Model):

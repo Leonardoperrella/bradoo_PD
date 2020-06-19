@@ -1,25 +1,50 @@
 # Bradoo - Python Developer
 
-## Objective
-The main objective of this project is to create an API to manage the loan payments control system from a fintech.
+## Description
+    The main objective of this project is to create an aplicantion for registration of vendor catalogues.
 
-## Purpose
-The purpose of this challenge is to test your ability to implement a solution given an abstract problem. You may find a problem in the asked task that you need to explain the problem and propose a solution to fix it.
+## Requirements and Resources Used.
 
-## Problem
-A fin-tech needs to create and manage the clients and keep track of the amount of money loaned and the missed/made payments. It also needs a place to retrieve the volume of outstanding debt at some point in time.
+### Computer
 
-## Business Rules
+    Hp pavilion I5 4G RAM.
 
-*If a client contracted a loan in the past and paid all without missing any payment, you can decrease by 0.02% his tax rate.
-*If a client contracted a loan in the past and paid all but missed until 3 monthly payments, you can increase by 0.04% his tax rate.
-*If a client contracted a loan in the past and paid all but missed more than 3 monthly payments or didn’t pay all the loan, you need to deny the new one.
+### Operational System
 
+    Ubuntu 18.04 LTS.
 
-## Limitations
-Loans are paid back in monthly installments.
+### IDLE
 
-## Endpoints
+    VsCode 1.46.1
+
+### Libraries
+
+    decimal
+    django
+    djangorestframework
+    dj-database-url
+    dj-static
+    drf-writable-nested
+    localflavor
+    python-decouple
+
+## How to developer?
+1. Clone the repository
+2. Create a virtualenv
+3. Active o virtualenv
+4. Install the dependencies.
+5. Configure the instance with .env
+6. Execute tests
+
+```console
+git clone https://github.com/Leonardoperrella/eventexlinux wttd
+cd wttd
+source .wttd/bin/activate
+pip install -r requirements-dev.txt
+cp contrib/env-sample .env
+python manage.py test
+```
+
 
 ### POST /vendors/
 
@@ -104,7 +129,7 @@ Example of sent data
 
 #### Reply
 
-- Example of received data
+Example of received data
 
     {
         "name": "Vendor1",
@@ -117,19 +142,7 @@ Example of sent data
         }]
     }
 
-- Example Not Found data.
-
-    {
-        "detail": "Not found."
-    }
-
 
 ### DELETE /vendors/{id}/
 
 Delete a vendor data and related products.
-
-- Example of Not Found data.
-
-    {
-        "detail": "Not found."
-    }
