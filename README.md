@@ -29,20 +29,29 @@
     python-decouple
 
 ## How to developer?
-1. Clone the repository
-2. Create a virtualenv
-3. Active o virtualenv
-4. Install the dependencies.
-5. Configure the instance with .env
-6. Execute tests
+
+    1. Clone the repository
+    2. Create a virtualenv
+    3. Active o virtualenv
+    4. Install the dependencies.
+    5. Configure the instance with .env
+    6. Run secret_gen.py
+    7. On file .venv, replace secret key generated into variable SECRET_KEY=<SECRET_KEY>.
+    8. Run migrations
+9. Execute tests
 
 ```console
-git clone https://github.com/Leonardoperrella/eventexlinux wttd
-cd wttd
-source .wttd/bin/activate
-pip install -r requirements-dev.txt
-cp contrib/env-sample .env
-python manage.py test
+    git clone https://github.com/Leonardoperrella/bradoo_PD.git bradoo
+    cd bradoo
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -r requirements.txt
+    cp contrib/env-sample .env
+    cd contrib
+    python secret_gen.py
+    cd ..
+    python manage.py migrate
+    python manage.py test
 ```
 
 

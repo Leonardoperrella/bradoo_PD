@@ -7,7 +7,7 @@ from bradoo.core.validators import validate_cnpj
 
 class Vendors(models.Model):
     name = models.CharField('Name', max_length=50)
-    cnpj = BRCNPJField(validators=[validate_cnpj])
+    cnpj = BRCNPJField(validators=[validate_cnpj], unique=True)
     city = models.CharField('City', max_length=100, blank=True)
 
     class Meta:

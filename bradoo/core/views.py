@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import status, viewsets, mixins
 from rest_framework.response import Response
 from bradoo.core.models import Products, Vendors
@@ -138,28 +139,14 @@ def edit_vendor(request, vendor_id):
 class VendorsViewSet(viewsets.ModelViewSet):
     queryset = Vendors.objects.all()
     serializer_class = VendorsSerializer
-
-    def get_queryset(self):
-        qs = super(VendorsViewSet, self).get_queryset()
-        pk = self.request.query_params.get('id')
-        cnpj = self.request.query_params.get('cnpj')
-        name = self.request.query_params.get('name')
-        print(self.request.GET)
-        if pk:
-            qs = qs.filter(pk=pk)
-            print('entrou pk')
-            print(qs)
-        if cnpj:
-            qs = qs.filter(cnpj=cnpj)
-            print('entrou cnpj')
-            print(qs)
-        if name:
-            qs = qs.filter(name=name)
-            print('entrou name')
-            print(qs)
-        return qs
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['id', 'cnpj']
+    
 
     def list(self, request, *args, **kwargs):
+        """Reimplemented the method list for when theis no data
+        to return, the response will return 204 No content.
+        """
         queryset = self.filter_queryset(self.get_queryset())
         if not queryset:
             return Response(status=status.HTTP_204_NO_CONTENT)
@@ -169,4 +156,4 @@ class VendorsViewSet(viewsets.ModelViewSet):
             return self.get_paginated_response(serializer.data)
 
         serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data)    
+        return Response(serializer.data)
