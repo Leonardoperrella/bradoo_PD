@@ -17,13 +17,13 @@
         <div class="col-md-9">
             <table class="table table-striped table-bordered">
                 <div class="col-md-3">
-                    <a class="btn btn-primary btn-block" href="{% url 'create-product' %}">Add Product</a>
+                    <a class="btn btn-primary btn-block" href="{% url 'create-product' %}">Add Product</a><br>
                 </div>
                 <thead>
                     <tr>
                         <th scope="col" class="action-checkbox-column">
                             <div class="text"><span>
-                                <input type="checkbox" id="action-toggle"></span>
+                                <input type="checkbox" id="action-toggle" onclick="products_toggle(this)"></span>
                             </div>
                             <div class="clear"></div>
                         </th>
@@ -45,7 +45,6 @@
                             <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                     <a href="{% url 'edit-product' obj.pk %}" class="btn btn-warning"><i class="fas fa-edit"></i></a>
-                                    <a href="{% url 'delete-product' obj.pk %}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
                                 </div>
                             </td>
                         </tr>
